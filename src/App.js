@@ -6,10 +6,8 @@ import { GlobalStyles } from "./components/global-styles/Global";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyles />
-        <Header />
-      </>
+      <GlobalStyles />
+      <Header />
     </ThemeProvider>
   );
 }

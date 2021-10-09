@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
   html {
     box-sizing: border-box;
   }
@@ -17,6 +14,8 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     font-family: 'Kalam', cursive;
     text-align: center;
+    background: linear-gradient(to right, rgb(119, 175, 253), rgb(255, 77, 148));
+    color: ${({ theme: { colors } }) => colors.globalText};
   }
 
   a {
