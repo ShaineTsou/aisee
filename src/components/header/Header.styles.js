@@ -49,8 +49,8 @@ export const StyledNavbar = styled.nav`
 `;
 
 export const StyledIntroContainer = styled.div`
-  margin: 70px auto 20px auto;
-  padding: 0;
+  margin: 0 auto;
+  padding: 70px 0 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
