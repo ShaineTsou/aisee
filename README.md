@@ -17,6 +17,7 @@ A full-stack color detection app that shows the hex code, density and the closes
 - Front End
   - React (w/ Hooks, Router)
   - Redux (w/ Thunk)
+  - styled-components
 
 - Back End
   - Node.js
