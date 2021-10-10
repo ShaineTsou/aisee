@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  p {
+  p, button, input, span {
     font-family: 'Montserrat', sans-serif;
   }
 `;

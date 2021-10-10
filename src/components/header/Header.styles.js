@@ -50,7 +50,7 @@ export const StyledNavbar = styled.nav`
 
 export const StyledIntroContainer = styled.div`
   margin: 0 auto;
-  padding: 70px 0 30px;
+  padding: 70px 20px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +59,7 @@ export const StyledIntroContainer = styled.div`
   .title {
     margin: 0;
     font-size: 3.5em;
-    letter-spacing: 0.2em;
+    letter-spacing: 10px;
   }
 
   .introduction {

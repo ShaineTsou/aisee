@@ -1,15 +1,20 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./components/global-styles/theme";
-import Header from "./components/header/Header";
 import ParticlesBackground from "./components/particles-background/ParticlesBackground";
-import { GlobalStyles } from "./components/global-styles/Global";
+import { GlobalStyles } from "./components/global-styles/Global.styles";
+
+import Header from "./components/header/Header";
+import ImageForm from "./components/image-form/ImageForm";
+import ColorDetection from "./components/color-detection/ColorDetection";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Header />
       <ParticlesBackground />
+      <Header />
+      <ImageForm />
+      <ColorDetection />
     </ThemeProvider>
   );
 }
