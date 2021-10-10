@@ -19,6 +19,10 @@ export const StyledImageLink = styled.input`
   font-size: 1em;
 
   ${roundCornerMixin}
+
+  @media screen and (max-width: 480px) {
+    min-width: 200px;
+  }
 `;
 
 export const StyledDetectButton = styled(CustomButton)`

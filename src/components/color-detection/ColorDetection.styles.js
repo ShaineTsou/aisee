@@ -25,6 +25,11 @@ export const StyledImageContainer = styled.div`
     background-size: cover;
     background-position: center;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 450px;
+    height: auto;
+  }
 `;
 
 export const StyledResultsContainer = styled.div`
