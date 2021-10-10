@@ -1,8 +1,10 @@
 import { StyledCustomButton } from "./CustomButton.styles";
 
-const CustomButton = ({ children, className }) => {
+const CustomButton = ({ children, className, onClick }) => {
   return (
-    <StyledCustomButton className={className}>{children}</StyledCustomButton>
+    <StyledCustomButton className={className} onClick={onClick}>
+      {children}
+    </StyledCustomButton>
   );
 };
 

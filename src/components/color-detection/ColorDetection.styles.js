@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { roundCornerMixin, shadowMixin } from "../global-styles/mixin";
 
 export const StyledColorDetectionContainer = styled.div`
-  display: flex;
+  display: ${({ colorDetectionHidden }) =>
+    colorDetectionHidden ? "none" : "flex"};
   flex-wrap: wrap;
   justify-content: center;
 `;
@@ -12,7 +13,7 @@ export const StyledImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex;
-  max-width: 450px;
+  height: 425px;
   overflow: hidden;
 
   ${roundCornerMixin}

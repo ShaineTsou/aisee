@@ -9,6 +9,7 @@ export const StyledColorTag = styled.div`
   width: 100%;
   margin: 5px 0;
   padding: 10px;
+  font-size: 0.85em;
 
   background-color: ${({ color }) => color};
 

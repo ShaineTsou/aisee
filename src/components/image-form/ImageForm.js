@@ -4,7 +4,7 @@ import {
   StyledDetectButton,
 } from "./ImageForm.styles";
 
-const ImageForm = () => {
+const ImageForm = ({ inputText, handleInputChange, handleImageSubmit }) => {
   return (
     <StyledImageFormContainer>
       <StyledImageLink
@@ -12,8 +12,12 @@ const ImageForm = () => {
         name="image-link"
         id="image-link"
         placeholder="Put image link here to detect colors"
+        value={inputText}
+        onChange={handleInputChange}
       />
-      <StyledDetectButton className="detect-btn">Detect</StyledDetectButton>
+      <StyledDetectButton className="detect-btn" onClick={handleImageSubmit}>
+        Detect
+      </StyledDetectButton>
     </StyledImageFormContainer>
   );
 };

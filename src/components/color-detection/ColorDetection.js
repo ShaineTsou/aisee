@@ -5,21 +5,28 @@ import {
 } from "./ColorDetection.styles";
 
 import ColorTag from "../color-tag/ColorTag";
+import Loader from "../loader/Loader";
 
-const ColorDetection = () => {
+const ColorDetection = ({
+  imageUrl,
+  imageLoaded,
+  handleImageLoaded,
+  colorDetectionHidden,
+}) => {
   return (
-    <StyledColorDetectionContainer>
+    <StyledColorDetectionContainer colorDetectionHidden={colorDetectionHidden}>
       <StyledImageContainer>
-        <img
-          src="https://unsplash.com/photos/MliheRJu0sk/download?force=true&w=640"
-          alt=""
-        />
+        <img src={imageUrl} alt="" onLoad={handleImageLoaded} />
       </StyledImageContainer>
-      <StyledResultsContainer>
-        <ColorTag />
-        <ColorTag />
-        <ColorTag />
-      </StyledResultsContainer>
+      {imageLoaded ? (
+        <StyledResultsContainer>
+          <ColorTag />
+          <ColorTag />
+          <ColorTag />
+        </StyledResultsContainer>
+      ) : (
+        <Loader />
+      )}
     </StyledColorDetectionContainer>
   );
 };
