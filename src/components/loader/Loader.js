@@ -1,9 +1,9 @@
 import { StyledLoader } from "./Loader.styles";
 import { ReactComponent as LoaderSvg } from "./loader.svg";
 
-const Loader = () => {
+const Loader = ({ loaderHidden }) => {
   return (
-    <StyledLoader>
+    <StyledLoader loaderHidden={loaderHidden}>
       <LoaderSvg className="loader" />
     </StyledLoader>
   );

@@ -11,7 +11,11 @@ export const StyledColorTag = styled.div`
   padding: 10px;
   font-size: 0.85em;
 
-  background-color: ${({ color }) => color};
+  background-color: ${({ bgColor }) => bgColor};
 
   ${roundCornerMixin}
+
+  span {
+    color: ${({ textColor }) => textColor};
+  }
 `;

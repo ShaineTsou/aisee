@@ -5,28 +5,23 @@ import {
 } from "./ColorDetection.styles";
 
 import ColorTag from "../color-tag/ColorTag";
-import Loader from "../loader/Loader";
 
-const ColorDetection = ({
-  imageUrl,
-  imageLoaded,
-  handleImageLoaded,
-  colorDetectionHidden,
-}) => {
+const ColorDetection = ({ imageUrl, colorDetectionHidden, colors }) => {
   return (
     <StyledColorDetectionContainer colorDetectionHidden={colorDetectionHidden}>
       <StyledImageContainer>
-        <img src={imageUrl} alt="" onLoad={handleImageLoaded} />
+        <img src={imageUrl} alt="" />
       </StyledImageContainer>
-      {imageLoaded ? (
-        <StyledResultsContainer>
-          <ColorTag />
-          <ColorTag />
-          <ColorTag />
-        </StyledResultsContainer>
-      ) : (
-        <Loader />
-      )}
+      <StyledResultsContainer>
+        {colors.map(({ raw_hex, value, w3c }) => (
+          <ColorTag
+            bgHex={raw_hex}
+            density={value}
+            name={w3c.name}
+            key={raw_hex}
+          />
+        ))}
+      </StyledResultsContainer>
     </StyledColorDetectionContainer>
   );
 };
