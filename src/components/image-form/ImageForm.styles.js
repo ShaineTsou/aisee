@@ -20,6 +20,10 @@ export const StyledImageLink = styled.input`
 
   ${roundCornerMixin}
 
+  &:focus {
+    filter: drop-shadow(0px 0px 10px gold);
+  }
+
   @media screen and (max-width: 480px) {
     min-width: 200px;
   }
@@ -30,4 +34,8 @@ export const StyledDetectButton = styled(CustomButton)`
   background-color: ${({ theme: { colors } }) => colors.detectBtnBg};
   font-weight: 700;
   letter-spacing: 1px;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 `;

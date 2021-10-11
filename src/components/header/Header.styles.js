@@ -41,8 +41,8 @@ export const StyledNavbar = styled.nav`
       margin: 0 20px;
       font-size: 1.2em;
 
-      &:visited {
-        color: inherit;
+      &:hover {
+        color: gold;
       }
     }
   }

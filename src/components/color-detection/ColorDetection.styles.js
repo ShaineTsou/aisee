@@ -41,4 +41,8 @@ export const StyledResultsContainer = styled.div`
 
   ${roundCornerMixin}
   ${shadowMixin}
+
+  .instruction {
+    margin: 5px 0;
+  }
 `;

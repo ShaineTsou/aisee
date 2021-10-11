@@ -15,8 +15,16 @@ const ColorTag = ({ bgHex, density, name }) => {
     return grayscale > 186 ? "black" : "white";
   };
 
+  const copyToClipboard = () => {
+    window.navigator.clipboard.writeText(bgHex);
+  };
+
   return (
-    <StyledColorTag bgColor={bgHex} textColor={getContrastTextColor(bgHex)}>
+    <StyledColorTag
+      bgColor={bgHex}
+      textColor={getContrastTextColor(bgHex)}
+      onClick={copyToClipboard}
+    >
       <span className="color-name">{`${name} ${bgHex}`}</span>
       <span className="color-density">{densityPercentage}%</span>
     </StyledColorTag>

@@ -13,6 +13,7 @@ const ColorDetection = ({ imageUrl, colorDetectionHidden, colors }) => {
         <img src={imageUrl} alt="" />
       </StyledImageContainer>
       <StyledResultsContainer>
+        <p className="instruction">↓ Click to copy hex code ↓</p>
         {colors.map(({ raw_hex, value, w3c }) => (
           <ColorTag
             bgHex={raw_hex}
