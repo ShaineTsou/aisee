@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { roundCornerMixin, shadowMixin } from "../global-styles/mixin";
+import { roundCornerMixin, shadowMixin } from "../../styles/mixin";
 
 export const StyledColorDetectionContainer = styled.div`
   display: ${({ colorDetectionHidden }) =>

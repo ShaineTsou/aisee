@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     globalText: "snow",
-    detectBtnBg: "gold",
+    btnBg: "gold",
     resultsBg: "snow",
     resultsText: "black",
   },

@@ -40,30 +40,6 @@ export const StyledNavbar = styled.nav`
     .option {
       margin: 0 20px;
       font-size: 1.2em;
-
-      &:hover {
-        color: gold;
-      }
     }
-  }
-`;
-
-export const StyledIntroContainer = styled.div`
-  margin: 0 auto;
-  padding: 60px 20px 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .title {
-    margin: 0;
-    font-size: 2.75em;
-    letter-spacing: 10px;
-  }
-
-  .introduction {
-    font-size: 1.25em;
-    margin: 0;
   }
 `;

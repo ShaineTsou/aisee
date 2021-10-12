@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { roundCornerMixin } from "../global-styles/mixin";
+import { roundCornerMixin } from "../../styles/mixin";
 
 export const StyledColorTag = styled.button`
   display: flex;

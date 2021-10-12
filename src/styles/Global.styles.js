@@ -22,6 +22,10 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+
+    &:hover {
+        color: gold;
+    }
   }
 
   button {

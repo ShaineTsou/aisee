@@ -1,8 +1,5 @@
-import {
-  StyledHeader,
-  StyledNavbar,
-  StyledIntroContainer,
-} from "./Header.styles";
+import { Link } from "react-router-dom";
+import { StyledHeader, StyledNavbar } from "./Header.styles";
 
 import logo from "../../assets/logo.png";
 
@@ -14,21 +11,17 @@ const Header = () => {
           <img src={logo} alt="website logo" className="logo" />
         </a>
         <div className="options-container">
-          <a href="/" className="option">
+          <Link to="/" className="option">
             Home
-          </a>
-          <a href="/" className="option">
+          </Link>
+          <Link to="/about" className="option">
+            About
+          </Link>
+          <Link to="signin" className="option">
             Sign In
-          </a>
+          </Link>
         </div>
       </StyledNavbar>
-      <StyledIntroContainer>
-        <h1 className="title">aiSee</h1>
-        <p className="introduction">
-          shows you the hex code, the density and the closest color name in the
-          image
-        </p>
-      </StyledIntroContainer>
     </StyledHeader>
   );
 };

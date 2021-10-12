@@ -1,8 +1,5 @@
-import {
-  StyledImageFormContainer,
-  StyledImageLink,
-  StyledDetectButton,
-} from "./ImageForm.styles";
+import CustomButton from "../custom-button/CustomButton";
+import { StyledImageFormContainer, StyledImageLink } from "./ImageForm.styles";
 
 const ImageForm = ({ inputText, handleInputChange, handleImageSubmit }) => {
   return (
@@ -15,9 +12,7 @@ const ImageForm = ({ inputText, handleInputChange, handleImageSubmit }) => {
         value={inputText}
         onChange={handleInputChange}
       />
-      <StyledDetectButton className="detect-btn" onClick={handleImageSubmit}>
-        Detect
-      </StyledDetectButton>
+      <CustomButton onClick={handleImageSubmit}>Detect</CustomButton>
     </StyledImageFormContainer>
   );
 };
