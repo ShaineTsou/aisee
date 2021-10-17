@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import FormCardContainer from "../../components/form-card-container/FormCardContainer";
@@ -7,16 +7,38 @@ import PageTitle from "../../components/page-title/PageTitle";
 import FormInput from "../../components/form-input/FormInput";
 import CustomButton from "../../components/custom-button/CustomButton";
 
-const SigninPage = () => {
+const SigninPage = ({ isSignin, handleSignin }) => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
   });
   const { email, password } = userCredentials;
+  const history = useHistory();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    // do something
+
+    const body = {
+      email: email,
+      password: password,
+    };
+
+    fetch("http://localhost:8080/signin", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.user_id) {
+          history.push("/profile");
+          handleSignin(data);
+        } else {
+          setErrorMessage(data);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (event) => {
@@ -24,7 +46,9 @@ const SigninPage = () => {
     setUserCredentials({ ...userCredentials, [name]: value });
   };
 
-  return (
+  return isSignin ? (
+    <Redirect to="/profile" />
+  ) : (
     <PageContainer>
       <FormCardContainer>
         <PageTitle>Sign In</PageTitle>
@@ -46,9 +70,10 @@ const SigninPage = () => {
             label="Password"
             required
           />
+          <p>{errorMessage}</p>
           <CustomButton type="submit">Sign In</CustomButton>
         </form>
-        <Link to="/signup">Sign up</Link>
+        <Link to="/signup">Sign up?</Link>
       </FormCardContainer>
     </PageContainer>
   );

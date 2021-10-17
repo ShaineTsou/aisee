@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { ThemeProvider } from "styled-components";
@@ -10,27 +11,44 @@ import HomePage from "./pages/home/HomePage";
 import AboutPage from "./pages/about/AboutPage";
 import SigninPage from "./pages/sign-in/SigninPage";
 import SignupPage from "./pages/sign-up/SignupPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 function App() {
+  const [isSignin, setIsSignin] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
+
+  const handleSignin = (userInfo) => {
+    setIsSignin(true);
+    setUserInfo(userInfo);
+  };
+
+  const handleSignout = () => {
+    setIsSignin(false);
+    setUserInfo({});
+  };
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ParticlesBackground />
-        <Header />
+        <Header isSignin={isSignin} handleSignout={handleSignout} />
 
         <Switch>
-          <Route path="/" exact>
-            <HomePage />
+          <Route exact path="/">
+            <HomePage userInfo={userInfo} />
           </Route>
-          <Route path="/about">
+          <Route exact path="/about">
             <AboutPage />
           </Route>
-          <Route path="/signin">
-            <SigninPage />
+          <Route exact path="/signin">
+            <SigninPage isSignin={isSignin} handleSignin={handleSignin} />
           </Route>
-          <Route path="/signup">
-            <SignupPage />
+          <Route exact path="/signup">
+            <SignupPage isSignin={isSignin} handleSignin={handleSignin} />
+          </Route>
+          <Route exact path="/profile">
+            <ProfilePage isSignin={isSignin} userInfo={userInfo} />
           </Route>
         </Switch>
       </ThemeProvider>
