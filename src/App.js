@@ -15,7 +15,13 @@ import ProfilePage from "./pages/profile/ProfilePage";
 
 function App() {
   const [isSignin, setIsSignin] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    user_id: "",
+    display_name: "",
+    email: "",
+    joined_date: "",
+    results: [],
+  });
 
   const handleSignin = (userInfo) => {
     setIsSignin(true);
