@@ -12,25 +12,36 @@ import AboutPage from "./pages/about/AboutPage";
 import SigninPage from "./pages/sign-in/SigninPage";
 import SignupPage from "./pages/sign-up/SignupPage";
 import ProfilePage from "./pages/profile/ProfilePage";
+import NotFoundPage from "./pages/not-found/NotFoundPage";
 
 function App() {
   const [isSignin, setIsSignin] = useState(false);
   const [userInfo, setUserInfo] = useState({
-    user_id: "",
-    display_name: "",
+    userId: 0,
+    displayName: "",
     email: "",
-    joined_date: "",
-    results: [],
+    joinedDate: "",
   });
 
   const handleSignin = (userInfo) => {
+    const { user_id, display_name, email, joined_date } = userInfo;
     setIsSignin(true);
-    setUserInfo(userInfo);
+    setUserInfo({
+      userId: user_id,
+      displayName: display_name,
+      email: email,
+      joinedDate: joined_date,
+    });
   };
 
   const handleSignout = () => {
     setIsSignin(false);
-    setUserInfo({});
+    setUserInfo({
+      userId: 0,
+      displayName: "",
+      email: "",
+      joinedDate: "",
+    });
   };
 
   return (
@@ -42,7 +53,7 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <HomePage userInfo={userInfo} />
+            <HomePage isSignin={isSignin} userInfo={userInfo} />
           </Route>
           <Route exact path="/about">
             <AboutPage />
@@ -56,6 +67,7 @@ function App() {
           <Route exact path="/profile">
             <ProfilePage isSignin={isSignin} userInfo={userInfo} />
           </Route>
+          <Route path="/" component={NotFoundPage} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>

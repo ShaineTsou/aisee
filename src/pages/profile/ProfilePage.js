@@ -4,14 +4,15 @@ import PageContainer from "../../components/page-container/PageContainer";
 import PageTitle from "../../components/page-title/PageTitle";
 
 const ProfilePage = ({ isSignin, userInfo }) => {
-  const { display_name, email, joined_date } = userInfo;
+  const { userId, displayName, email, joinedDate } = userInfo;
 
   return isSignin ? (
     <PageContainer>
       <PageTitle>Profile Page</PageTitle>
-      <h1>Hello, {display_name}</h1>
+      <h1>Hello, {displayName}</h1>
+      <p>Your userId is: {userId}</p>
       <p>Your email is: {email}</p>
-      <p>You joined at {joined_date}</p>
+      <p>You joined at {joinedDate}</p>
     </PageContainer>
   ) : (
     <Redirect to="/signin" />

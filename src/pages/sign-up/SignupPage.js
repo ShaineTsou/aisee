@@ -43,7 +43,7 @@ const SignupPage = ({ isSignin, handleSignin }) => {
           history.push("/profile");
           handleSignin(data);
         } else {
-          setErrorMessage(data);
+          setErrorMessage("Unable to sign up");
         }
       })
       .catch((err) => console.log(err));

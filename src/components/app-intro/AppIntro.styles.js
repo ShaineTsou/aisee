@@ -8,3 +8,8 @@ export const StyledIntroduction = styled.p`
     font-size: 1em;
   }
 `;
+
+export const StyledSuggestion = styled.p`
+  color: red;
+  font-weight: 700;
+`;

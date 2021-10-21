@@ -11,8 +11,8 @@ const app = new Clarifai.App({
   apiKey: "your_access_key",
 });
 
-const HomePage = ({ userInfo }) => {
-  const { user_id } = userInfo;
+const HomePage = ({ userInfo, isSignin }) => {
+  const { userId } = userInfo;
   const [inputText, setInputText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [colorDetectionHidden, setColorDetectionHidden] = useState(true);
@@ -39,28 +39,30 @@ const HomePage = ({ userInfo }) => {
             setLoaderHidden(true);
             setColorDetectionHidden(false);
 
-            fetch("http://localhost:8080/image", {
-              method: "put",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                userId: user_id,
-                imageUrl: inputText,
-                colors: response.outputs[0].data.colors,
-              }),
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                if (data.user_id) {
-                  return "Result update success";
-                } else {
-                  return "User not found";
-                }
+            if (userId !== 0) {
+              fetch("http://localhost:8080/image", {
+                method: "post",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  userId: userId,
+                  imageUrl: inputText,
+                  colors: response.outputs[0].data.colors,
+                }),
               })
-              .catch((err) => {
-                console.log("Error submitting image", err);
-              });
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.user_id) {
+                    return "Result update success";
+                  } else {
+                    return "User not found";
+                  }
+                })
+                .catch((err) => {
+                  console.log("Error submitting image", err);
+                });
+            }
           }
         })
         .catch((err) => console.log("err: ", err));
@@ -70,7 +72,7 @@ const HomePage = ({ userInfo }) => {
   return (
     <PageContainer>
       <Loader loaderHidden={loaderHidden} />
-      <AppIntro />
+      <AppIntro isSignin={isSignin} />
       <ImageForm
         inputText={inputText}
         handleInputChange={handleInputChange}
