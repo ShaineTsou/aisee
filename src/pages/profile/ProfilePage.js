@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
 import PageContainer from "../../components/page-container/PageContainer";
@@ -5,6 +6,14 @@ import PageTitle from "../../components/page-title/PageTitle";
 
 const ProfilePage = ({ isSignin, userInfo }) => {
   const { userId, displayName, email, joinedDate } = userInfo;
+
+  useEffect(() => {
+    if (userId !== 0) {
+      fetch(`http://localhost:8080/profile/${userId}`)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    }
+  });
 
   return isSignin ? (
     <PageContainer>

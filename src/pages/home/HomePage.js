@@ -53,7 +53,7 @@ const HomePage = ({ userInfo, isSignin }) => {
               })
                 .then((response) => response.json())
                 .then((data) => {
-                  if (data.user_id) {
+                  if (data === "storing colors success") {
                     return "Result update success";
                   } else {
                     return "User not found";
