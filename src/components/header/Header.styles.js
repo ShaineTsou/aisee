@@ -38,7 +38,7 @@ export const StyledNavbar = styled.nav`
     width: 70%;
 
     .option {
-      margin: 0 20px;
+      margin: 0 15px;
       font-size: 1.2em;
     }
   }

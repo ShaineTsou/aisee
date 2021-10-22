@@ -16,6 +16,10 @@ export const StyledFormCardContainer = styled.div`
     text-align: end;
   }
 
+  .warning {
+    color: red;
+  }
+
   @media screen and (max-width: 768px) {
     width: 80%;
   }

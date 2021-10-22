@@ -46,7 +46,7 @@ const SignupPage = ({ isSignin, handleSignin }) => {
           setErrorMessage("Unable to sign up");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => "Error signing up");
   };
 
   const handleChange = (event) => {
@@ -94,7 +94,7 @@ const SignupPage = ({ isSignin, handleSignin }) => {
             label="Confirm Password"
             required
           />
-          <p>{errorMassage}</p>
+          <p className="warning">{errorMassage}</p>
           <CustomButton type="submit">Sign Up</CustomButton>
         </form>
         <Link to="/signin">Sign In?</Link>

@@ -8,7 +8,6 @@ import { GlobalStyles } from "./styles/Global.styles";
 
 import Header from "./components/header/Header";
 import HomePage from "./pages/home/HomePage";
-import AboutPage from "./pages/about/AboutPage";
 import SigninPage from "./pages/sign-in/SigninPage";
 import SignupPage from "./pages/sign-up/SignupPage";
 import ProfilePage from "./pages/profile/ProfilePage";
@@ -54,9 +53,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage isSignin={isSignin} userInfo={userInfo} />
-          </Route>
-          <Route exact path="/about">
-            <AboutPage />
           </Route>
           <Route exact path="/signin">
             <SigninPage isSignin={isSignin} handleSignin={handleSignin} />

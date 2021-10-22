@@ -12,12 +12,6 @@ const Header = ({ isSignin, handleSignout }) => {
           <img src={logo} alt="website logo" className="logo" />
         </Link>
         <div className="options-container">
-          <Link to="/" className="option">
-            Home
-          </Link>
-          <Link to="/about" className="option">
-            About
-          </Link>
           {isSignin ? (
             <>
               <Link to="/signin" className="option" onClick={handleSignout}>
@@ -29,7 +23,7 @@ const Header = ({ isSignin, handleSignout }) => {
             </>
           ) : (
             <Link to="signin" className="option">
-              Sign In / Sign Up
+              Sign In / Up
             </Link>
           )}
         </div>

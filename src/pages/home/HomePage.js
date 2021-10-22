@@ -59,13 +59,11 @@ const HomePage = ({ userInfo, isSignin }) => {
                     return "User not found";
                   }
                 })
-                .catch((err) => {
-                  console.log("Error submitting image", err);
-                });
+                .catch((err) => "Unable to submit result");
             }
           }
         })
-        .catch((err) => console.log("err: ", err));
+        .catch((err) => "Error detecting image");
     }
   };
 
