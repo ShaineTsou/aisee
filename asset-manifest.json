@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/aisee/static/js/main.2f7ccdab.chunk.js",
+    "main.js.map": "/aisee/static/js/main.2f7ccdab.chunk.js.map",
+    "runtime-main.js": "/aisee/static/js/runtime-main.55feec12.js",
+    "runtime-main.js.map": "/aisee/static/js/runtime-main.55feec12.js.map",
+    "static/js/2.e4fa78d3.chunk.js": "/aisee/static/js/2.e4fa78d3.chunk.js",
+    "static/js/2.e4fa78d3.chunk.js.map": "/aisee/static/js/2.e4fa78d3.chunk.js.map",
+    "static/js/3.98df1685.chunk.js": "/aisee/static/js/3.98df1685.chunk.js",
+    "static/js/3.98df1685.chunk.js.map": "/aisee/static/js/3.98df1685.chunk.js.map",
+    "index.html": "/aisee/index.html",
+    "static/js/2.e4fa78d3.chunk.js.LICENSE.txt": "/aisee/static/js/2.e4fa78d3.chunk.js.LICENSE.txt",
+    "static/media/loader.56cda68a.svg": "/aisee/static/media/loader.56cda68a.svg",
+    "static/media/logo.bf9ff36a.png": "/aisee/static/media/logo.bf9ff36a.png",
+    "static/media/profile.8b3fdfe1.svg": "/aisee/static/media/profile.8b3fdfe1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.55feec12.js",
+    "static/js/2.e4fa78d3.chunk.js",
+    "static/js/main.2f7ccdab.chunk.js"
+  ]
+}
