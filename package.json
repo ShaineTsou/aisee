@@ -1,7 +1,7 @@
 {
   "name": "aisee",
   "version": "0.1.0",
-  "homepage": "https://ShaineTsou.github.io/aisee",
+  "homepage": "https://shainetsou.github.io/aisee",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
