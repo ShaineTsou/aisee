@@ -24,7 +24,7 @@ const SigninPage = ({ isSignin, handleSignin }) => {
       password: password,
     };
 
-    fetch("http://localhost:8080/signin", {
+    fetch("https://aisee-server.herokuapp.com/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

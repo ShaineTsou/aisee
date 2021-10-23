@@ -26,7 +26,7 @@ const HomePage = ({ userInfo, isSignin }) => {
       setInputText("");
       setLoaderHidden(false);
 
-      fetch("http://localhost:8080/imageurl", {
+      fetch("https://aisee-server.herokuapp.com/imageurl", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const HomePage = ({ userInfo, isSignin }) => {
             setColorDetectionHidden(false);
 
             if (userId !== 0) {
-              fetch("http://localhost:8080/image", {
+              fetch("https://aisee-server.herokuapp.com/image", {
                 method: "post",
                 headers: {
                   "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const ProfilePage = ({ isSignin, userInfo }) => {
     let mounted = true;
 
     if (userId !== 0) {
-      fetch(`http://localhost:8080/profile/${userId}`)
+      fetch(`https://aisee-server.herokuapp.com/profile/${userId}`)
         .then((response) => response.json())
         .then((resultsArr) => {
           if (mounted) {
