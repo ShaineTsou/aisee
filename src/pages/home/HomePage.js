@@ -1,15 +1,10 @@
 import { useState } from "react";
-import Clarifai from "clarifai";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import Loader from "../../components/loader/Loader";
 import AppIntro from "../../components/app-intro/AppIntro";
 import ImageForm from "../../components/image-form/ImageForm";
 import ColorDetection from "../../components/color-detection/ColorDetection";
-
-const app = new Clarifai.App({
-  apiKey: "your_access_key",
-});
 
 const HomePage = ({ userInfo, isSignin }) => {
   const { userId } = userInfo;
@@ -31,8 +26,16 @@ const HomePage = ({ userInfo, isSignin }) => {
       setInputText("");
       setLoaderHidden(false);
 
-      app.models
-        .predict("eeed0b6733a644cea07cf4c60f87ebb7", inputText)
+      fetch("http://localhost:8080/imageurl", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          imageUrl: inputText,
+        }),
+      })
+        .then((response) => response.json())
         .then((response) => {
           if (response) {
             setColors(response.outputs[0].data.colors);
