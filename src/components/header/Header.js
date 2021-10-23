@@ -8,21 +8,25 @@ const Header = ({ isSignin, handleSignout }) => {
   return (
     <StyledHeader>
       <StyledNavbar>
-        <Link to="/" className="logo-container">
+        <Link to="/aisee/" className="logo-container">
           <img src={logo} alt="website logo" className="logo" />
         </Link>
         <div className="options-container">
           {isSignin ? (
             <>
-              <Link to="/signin" className="option" onClick={handleSignout}>
+              <Link
+                to="/aisee/signin"
+                className="option"
+                onClick={handleSignout}
+              >
                 Sign Out
               </Link>
-              <Link to="/profile" className="option">
+              <Link to="/aisee/profile" className="option">
                 <ProfileIcon />
               </Link>
             </>
           ) : (
-            <Link to="signin" className="option">
+            <Link to="/aisee/signin" className="option">
               Sign In / Up
             </Link>
           )}

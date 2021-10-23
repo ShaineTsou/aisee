@@ -47,7 +47,7 @@ const SigninPage = ({ isSignin, handleSignin }) => {
   };
 
   return isSignin ? (
-    <Redirect to="/profile" />
+    <Redirect to="/aisee/profile" />
   ) : (
     <PageContainer>
       <FormCardContainer>
@@ -73,7 +73,7 @@ const SigninPage = ({ isSignin, handleSignin }) => {
           <p className="warning">{errorMessage}</p>
           <CustomButton type="submit">Sign In</CustomButton>
         </form>
-        <Link to="/signup">Sign up?</Link>
+        <Link to="/aisee/signup">Sign up?</Link>
       </FormCardContainer>
     </PageContainer>
   );

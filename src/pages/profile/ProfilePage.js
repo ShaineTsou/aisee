@@ -49,7 +49,7 @@ const ProfilePage = ({ isSignin, userInfo }) => {
       )}
     </PageContainer>
   ) : (
-    <Redirect to="/signin" />
+    <Redirect to="/aisee/signin" />
   );
 };
 

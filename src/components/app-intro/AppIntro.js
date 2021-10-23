@@ -10,7 +10,9 @@ const AppIntro = ({ isSignin }) => {
         image
       </StyledIntroduction>
       <StyledSuggestion>
-        <Link to="signin">{isSignin ? "" : "Sign in/up to save results!"}</Link>
+        <Link to="/aisee/signin">
+          {isSignin ? "" : "Sign in/up to save results!"}
+        </Link>
       </StyledSuggestion>
     </>
   );
