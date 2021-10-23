@@ -40,7 +40,7 @@ const SignupPage = ({ isSignin, handleSignin }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.user_id) {
-          history.push("/profile");
+          history.push("/aisee/profile");
           handleSignin(data);
         } else {
           setErrorMessage("Unable to sign up");
