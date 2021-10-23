@@ -51,19 +51,19 @@ function App() {
         <Header isSignin={isSignin} handleSignout={handleSignout} />
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/aisee/">
             <HomePage isSignin={isSignin} userInfo={userInfo} />
           </Route>
-          <Route exact path="/signin">
+          <Route exact path="/aisee/signin">
             <SigninPage isSignin={isSignin} handleSignin={handleSignin} />
           </Route>
-          <Route exact path="/signup">
+          <Route exact path="/aisee/signup">
             <SignupPage isSignin={isSignin} handleSignin={handleSignin} />
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/aisee/profile">
             <ProfilePage isSignin={isSignin} userInfo={userInfo} />
           </Route>
-          <Route path="/" component={NotFoundPage} />
+          <Route path="/aisee/" component={NotFoundPage} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>
