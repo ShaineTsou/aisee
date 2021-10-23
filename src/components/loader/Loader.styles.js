@@ -8,6 +8,7 @@ export const StyledLoader = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: rgba(255, 255, 255, 0.2);
+  z-index: 2000;
 
   .loader {
     position: absolute;

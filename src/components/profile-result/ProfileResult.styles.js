@@ -49,7 +49,6 @@ export const StyledResultImageContainer = styled.div`
 
 export const StyledImageAndTagsContainer = styled.div`
   width: 100%;
-  /* border: 1px solid red; */
   margin: 15px;
   display: flex;
   flex-wrap: wrap;

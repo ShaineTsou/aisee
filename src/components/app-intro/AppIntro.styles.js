@@ -10,6 +10,6 @@ export const StyledIntroduction = styled.p`
 `;
 
 export const StyledSuggestion = styled.p`
-  color: red;
+  color: blue;
   font-weight: 700;
 `;
