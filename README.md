@@ -1,5 +1,5 @@
 # aiSee
-
+![Image of aiSee Home Page](./public/aisee.png)
 A full-stack color detection app that shows the hex code, density and the closest W3C color name for each identified color in an image.
 
 ## Core Features
@@ -18,9 +18,13 @@ A full-stack color detection app that shows the hex code, density and the closes
   - React (w/ Hooks, Router)
   - styled-components
 
-- Back End
+- [Back End](https://github.com/ShaineTsou/aisee-api)
   - Node.js
   - Express.js
   - [Knex.js](https://knexjs.org/)
   - PostgreSQL
   - [Clarifai API](https://www.clarifai.com/)
+
+## Deployment
+- Front End: GitHub Pages
+- [Back End](https://github.com/ShaineTsou/aisee-api): Heroku
