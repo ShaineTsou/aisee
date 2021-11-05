@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import PageTitle from "../../components/page-title/PageTitle";
 import Loader from "../../components/loader/Loader";
 import ProfileResult from "../../components/profile-result/ProfileResult";
 
-const ProfilePage = ({ isSignin, userInfo }) => {
+const ProfilePage = ({ userInfo }) => {
   const { userId, displayName } = userInfo;
   const [loaderHidden, setLoaderHidden] = useState(false);
   const [userResults, setUserResults] = useState([]);
@@ -32,7 +31,7 @@ const ProfilePage = ({ isSignin, userInfo }) => {
     };
   }, [userId]);
 
-  return isSignin ? (
+  return (
     <PageContainer>
       <Loader loaderHidden={loaderHidden} />
       <PageTitle>Hello, {displayName}</PageTitle>
@@ -48,8 +47,6 @@ const ProfilePage = ({ isSignin, userInfo }) => {
         <p>You haven't detected any pictures yet.</p>
       )}
     </PageContainer>
-  ) : (
-    <Redirect to="/aisee/signin" />
   );
 };
 

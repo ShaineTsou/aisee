@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
@@ -8,8 +8,8 @@ import { GlobalStyles } from "./styles/Global.styles";
 
 import Header from "./components/header/Header";
 import HomePage from "./pages/home/HomePage";
-import SigninPage from "./pages/sign-in/SigninPage";
-import SignupPage from "./pages/sign-up/SignupPage";
+import SignInPage from "./pages/sign-in/SignInPage";
+import SignUpPage from "./pages/sign-up/SignUpPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import NotFoundPage from "./pages/not-found/NotFoundPage";
 
@@ -54,15 +54,39 @@ function App() {
           <Route exact path="/aisee/">
             <HomePage isSignin={isSignin} userInfo={userInfo} />
           </Route>
-          <Route exact path="/aisee/signin">
-            <SigninPage isSignin={isSignin} handleSignin={handleSignin} />
-          </Route>
-          <Route exact path="/aisee/signup">
-            <SignupPage isSignin={isSignin} handleSignin={handleSignin} />
-          </Route>
-          <Route exact path="/aisee/profile">
-            <ProfilePage isSignin={isSignin} userInfo={userInfo} />
-          </Route>
+          <Route
+            exact
+            path="/aisee/signin"
+            render={() =>
+              isSignin ? (
+                <Redirect to="/aisee/profile" />
+              ) : (
+                <SignInPage handleSignin={handleSignin} />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/aisee/signup"
+            render={() =>
+              isSignin ? (
+                <Redirect to="/aisee/profile" />
+              ) : (
+                <SignUpPage handleSignin={handleSignin} />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/aisee/profile"
+            render={() =>
+              isSignin ? (
+                <ProfilePage userInfo={userInfo} />
+              ) : (
+                <Redirect to="/aisee/signin" />
+              )
+            }
+          />
           <Route path="/aisee/" component={NotFoundPage} />
         </Switch>
       </ThemeProvider>

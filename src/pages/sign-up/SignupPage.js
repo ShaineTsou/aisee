@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useHistory, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import FormCardContainer from "../../components/form-card-container/FormCardContainer";
@@ -7,7 +7,7 @@ import PageTitle from "../../components/page-title/PageTitle";
 import FormInput from "../../components/form-input/FormInput";
 import CustomButton from "../../components/custom-button/CustomButton";
 
-const SignupPage = ({ isSignin, handleSignin }) => {
+const SignUpPage = ({ isSignin, handleSignin }) => {
   const [errorMassage, setErrorMessage] = useState("");
   const [userCredentials, setUserCredentials] = useState({
     displayName: "",
@@ -54,9 +54,7 @@ const SignupPage = ({ isSignin, handleSignin }) => {
     setUserCredentials({ ...userCredentials, [name]: value });
   };
 
-  return isSignin ? (
-    <Redirect to="/aisee/profile" />
-  ) : (
+  return (
     <PageContainer>
       <FormCardContainer>
         <PageTitle>Sign Up</PageTitle>
@@ -103,4 +101,4 @@ const SignupPage = ({ isSignin, handleSignin }) => {
   );
 };
 
-export default SignupPage;
+export default SignUpPage;
