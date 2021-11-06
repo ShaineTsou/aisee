@@ -16,6 +16,7 @@ A full-stack color detection app that shows the hex code, density and the closes
 ## Technologies
 - Front End
   - React (w/ Hooks, Router)
+  - Redux
   - styled-components
 
 - [Back End](https://github.com/ShaineTsou/aisee-api)
