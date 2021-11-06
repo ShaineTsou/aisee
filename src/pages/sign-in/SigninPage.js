@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { setCurrentUser } from "../../redux/user/user.actions";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import FormCardContainer from "../../components/form-card-container/FormCardContainer";
@@ -7,7 +9,7 @@ import PageTitle from "../../components/page-title/PageTitle";
 import FormInput from "../../components/form-input/FormInput";
 import CustomButton from "../../components/custom-button/CustomButton";
 
-const SignInPage = ({ handleSignin }) => {
+const SignInPage = ({ setCurrentUser }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [userCredentials, setUserCredentials] = useState({
     email: "",
@@ -33,7 +35,12 @@ const SignInPage = ({ handleSignin }) => {
       .then((data) => {
         if (data.user_id) {
           history.push("/aisee/profile");
-          handleSignin(data);
+          setCurrentUser({
+            userId: data.user_id,
+            displayName: data.display_name,
+            email: data.email,
+            joinedDate: data.joined_date,
+          });
         } else {
           setErrorMessage(data);
         }
@@ -77,4 +84,8 @@ const SignInPage = ({ handleSignin }) => {
   );
 };
 
-export default SignInPage;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(SignInPage);

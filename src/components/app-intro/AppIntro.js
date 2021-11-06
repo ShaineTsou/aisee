@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { StyledIntroduction, StyledSuggestion } from "./AppIntro.styles";
 import PageTitle from "../../components/page-title/PageTitle";
-const AppIntro = ({ isSignin }) => {
+const AppIntro = ({ currentUser }) => {
   return (
     <>
       <PageTitle>aiSee</PageTitle>
@@ -11,11 +12,15 @@ const AppIntro = ({ isSignin }) => {
       </StyledIntroduction>
       <StyledSuggestion>
         <Link to="/aisee/signin">
-          {isSignin ? "" : "Sign in/up to save results!"}
+          {currentUser.userId > 0 ? "" : "Sign in/up to save results!"}
         </Link>
       </StyledSuggestion>
     </>
   );
 };
 
-export default AppIntro;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(AppIntro);

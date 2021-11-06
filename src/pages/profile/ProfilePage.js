@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import PageTitle from "../../components/page-title/PageTitle";
 import Loader from "../../components/loader/Loader";
 import ProfileResult from "../../components/profile-result/ProfileResult";
 
-const ProfilePage = ({ userInfo }) => {
-  const { userId, displayName } = userInfo;
+const ProfilePage = ({ currentUser }) => {
+  const { userId, displayName } = currentUser;
+
   const [loaderHidden, setLoaderHidden] = useState(false);
   const [userResults, setUserResults] = useState([]);
 
@@ -50,4 +52,8 @@ const ProfilePage = ({ userInfo }) => {
   );
 };
 
-export default ProfilePage;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(ProfilePage);

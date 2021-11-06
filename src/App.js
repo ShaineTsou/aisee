@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
@@ -13,55 +13,26 @@ import SignUpPage from "./pages/sign-up/SignUpPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import NotFoundPage from "./pages/not-found/NotFoundPage";
 
-function App() {
-  const [isSignin, setIsSignin] = useState(false);
-  const [userInfo, setUserInfo] = useState({
-    userId: 0,
-    displayName: "",
-    email: "",
-    joinedDate: "",
-  });
-
-  const handleSignin = (userInfo) => {
-    const { user_id, display_name, email, joined_date } = userInfo;
-    setIsSignin(true);
-    setUserInfo({
-      userId: user_id,
-      displayName: display_name,
-      email: email,
-      joinedDate: joined_date,
-    });
-  };
-
-  const handleSignout = () => {
-    setIsSignin(false);
-    setUserInfo({
-      userId: 0,
-      displayName: "",
-      email: "",
-      joinedDate: "",
-    });
-  };
-
+function App({ currentUser }) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ParticlesBackground />
-        <Header isSignin={isSignin} handleSignout={handleSignout} />
+        <Header />
 
         <Switch>
           <Route exact path="/aisee/">
-            <HomePage isSignin={isSignin} userInfo={userInfo} />
+            <HomePage />
           </Route>
           <Route
             exact
             path="/aisee/signin"
             render={() =>
-              isSignin ? (
+              currentUser.userId > 0 ? (
                 <Redirect to="/aisee/profile" />
               ) : (
-                <SignInPage handleSignin={handleSignin} />
+                <SignInPage />
               )
             }
           />
@@ -69,10 +40,10 @@ function App() {
             exact
             path="/aisee/signup"
             render={() =>
-              isSignin ? (
+              currentUser.userId > 0 ? (
                 <Redirect to="/aisee/profile" />
               ) : (
-                <SignUpPage handleSignin={handleSignin} />
+                <SignUpPage />
               )
             }
           />
@@ -80,8 +51,8 @@ function App() {
             exact
             path="/aisee/profile"
             render={() =>
-              isSignin ? (
-                <ProfilePage userInfo={userInfo} />
+              currentUser.userId > 0 ? (
+                <ProfilePage />
               ) : (
                 <Redirect to="/aisee/signin" />
               )
@@ -94,4 +65,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(App);

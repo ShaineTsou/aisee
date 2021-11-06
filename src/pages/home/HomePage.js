@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { connect } from "react-redux";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import Loader from "../../components/loader/Loader";
@@ -6,8 +7,8 @@ import AppIntro from "../../components/app-intro/AppIntro";
 import ImageForm from "../../components/image-form/ImageForm";
 import ColorDetection from "../../components/color-detection/ColorDetection";
 
-const HomePage = ({ userInfo, isSignin }) => {
-  const { userId } = userInfo;
+const HomePage = ({ currentUser }) => {
+  const { userId } = currentUser;
   const [inputText, setInputText] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [colorDetectionHidden, setColorDetectionHidden] = useState(true);
@@ -73,7 +74,7 @@ const HomePage = ({ userInfo, isSignin }) => {
   return (
     <PageContainer>
       <Loader loaderHidden={loaderHidden} />
-      <AppIntro isSignin={isSignin} />
+      <AppIntro />
       <ImageForm
         inputText={inputText}
         handleInputChange={handleInputChange}
@@ -88,4 +89,8 @@ const HomePage = ({ userInfo, isSignin }) => {
   );
 };
 
-export default HomePage;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(HomePage);

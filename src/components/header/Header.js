@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom";
 import { StyledHeader, StyledNavbar } from "./Header.styles";
+import { connect } from "react-redux";
+import { setCurrentUser } from "../../redux/user/user.actions";
 
 import { ReactComponent as ProfileIcon } from "../../assets/profile.svg";
 import logo from "../../assets/logo.png";
 
-const Header = ({ isSignin, handleSignout }) => {
+const Header = ({ currentUser, setCurrentUser }) => {
+  const { userId } = currentUser;
+
+  const handleSignOut = () => {
+    setCurrentUser({
+      userId: 0,
+      displayName: "",
+      email: "",
+      joinedDate: "",
+    });
+  };
+
   return (
     <StyledHeader>
       <StyledNavbar>
@@ -12,12 +25,12 @@ const Header = ({ isSignin, handleSignout }) => {
           <img src={logo} alt="website logo" className="logo" />
         </Link>
         <div className="options-container">
-          {isSignin ? (
+          {userId > 0 ? (
             <>
               <Link
                 to="/aisee/signin"
                 className="option"
-                onClick={handleSignout}
+                onClick={handleSignOut}
               >
                 Sign Out
               </Link>
@@ -36,4 +49,12 @@ const Header = ({ isSignin, handleSignout }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
