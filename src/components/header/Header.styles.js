@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
 
 export const StyledNavbar = styled.nav`
   width: 100%;
-  height: 70px;
+  height: 80px;
   padding: 0 20px;
   position: fixed;
   top: 0;
@@ -21,13 +21,24 @@ export const StyledNavbar = styled.nav`
     display: flex;
     align-items: center;
 
-    .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 15px;
+    &:hover {
+      color: inherit;
+      filter: drop-shadow(0px 0px 15px #ccc);
+    }
 
-      &:hover {
-        filter: drop-shadow(0px 0px 15px #ccc);
+    .logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .logo-text {
+      font-family: "Kalam", cursive;
+      font-size: 1.75em;
+      font-weight: 700;
+      letter-spacing: 3px;
+
+      @media screen and (max-width: 480px) {
+        display: none;
       }
     }
   }
@@ -38,6 +49,8 @@ export const StyledNavbar = styled.nav`
     width: 70%;
 
     .option {
+      display: flex;
+      align-items: center;
       margin: 0 15px;
       font-size: 1.2em;
     }

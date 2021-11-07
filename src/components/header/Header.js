@@ -23,6 +23,7 @@ const Header = ({ currentUser, setCurrentUser }) => {
       <StyledNavbar>
         <Link to="/aisee/" className="logo-container">
           <img src={logo} alt="website logo" className="logo" />
+          <span className="logo-text">aiSee</span>
         </Link>
         <div className="options-container">
           {userId > 0 ? (
