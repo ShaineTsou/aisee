@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/aisee/static/js/main.bb7b251a.chunk.js",
-    "main.js.map": "/aisee/static/js/main.bb7b251a.chunk.js.map",
-    "runtime-main.js": "/aisee/static/js/runtime-main.6ed0667b.js",
-    "runtime-main.js.map": "/aisee/static/js/runtime-main.6ed0667b.js.map",
-    "static/js/2.62871402.chunk.js": "/aisee/static/js/2.62871402.chunk.js",
-    "static/js/2.62871402.chunk.js.map": "/aisee/static/js/2.62871402.chunk.js.map",
-    "static/js/3.014385a2.chunk.js": "/aisee/static/js/3.014385a2.chunk.js",
-    "static/js/3.014385a2.chunk.js.map": "/aisee/static/js/3.014385a2.chunk.js.map",
+    "main.js": "/aisee/static/js/main.5a5db178.chunk.js",
+    "main.js.map": "/aisee/static/js/main.5a5db178.chunk.js.map",
+    "runtime-main.js": "/aisee/static/js/runtime-main.a20a196e.js",
+    "runtime-main.js.map": "/aisee/static/js/runtime-main.a20a196e.js.map",
+    "static/js/2.19ef6275.chunk.js": "/aisee/static/js/2.19ef6275.chunk.js",
+    "static/js/2.19ef6275.chunk.js.map": "/aisee/static/js/2.19ef6275.chunk.js.map",
+    "static/js/3.129d64e1.chunk.js": "/aisee/static/js/3.129d64e1.chunk.js",
+    "static/js/3.129d64e1.chunk.js.map": "/aisee/static/js/3.129d64e1.chunk.js.map",
     "index.html": "/aisee/index.html",
-    "static/js/2.62871402.chunk.js.LICENSE.txt": "/aisee/static/js/2.62871402.chunk.js.LICENSE.txt",
+    "static/js/2.19ef6275.chunk.js.LICENSE.txt": "/aisee/static/js/2.19ef6275.chunk.js.LICENSE.txt",
     "static/media/loader.56cda68a.svg": "/aisee/static/media/loader.56cda68a.svg",
     "static/media/logo.a8624b64.png": "/aisee/static/media/logo.a8624b64.png",
     "static/media/profile.8b3fdfe1.svg": "/aisee/static/media/profile.8b3fdfe1.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6ed0667b.js",
-    "static/js/2.62871402.chunk.js",
-    "static/js/main.bb7b251a.chunk.js"
+    "static/js/runtime-main.a20a196e.js",
+    "static/js/2.19ef6275.chunk.js",
+    "static/js/main.5a5db178.chunk.js"
   ]
 }
