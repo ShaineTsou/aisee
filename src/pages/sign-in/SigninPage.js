@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../../redux/user/user.actions";
 
+import SEO from "../../components/seo/Seo";
 import PageContainer from "../../components/page-container/PageContainer";
 import FormCardContainer from "../../components/form-card-container/FormCardContainer";
 import PageTitle from "../../components/page-title/PageTitle";
@@ -55,6 +56,10 @@ const SignInPage = ({ setCurrentUser }) => {
 
   return (
     <PageContainer>
+      <SEO
+        title="Sign In"
+        description="Sign in your aiSee account to save results"
+      />
       <FormCardContainer>
         <PageTitle>Sign In</PageTitle>
 

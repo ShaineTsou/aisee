@@ -6,6 +6,7 @@ import { theme } from "./styles/theme";
 import ParticlesBackground from "./components/particles-background/ParticlesBackground";
 import { GlobalStyles } from "./styles/Global.styles";
 
+import SEO from "./components/seo/Seo";
 import Header from "./components/header/Header";
 import HomePage from "./pages/home/HomePage";
 import SignInPage from "./pages/sign-in/SignInPage";
@@ -16,6 +17,7 @@ import NotFoundPage from "./pages/not-found/NotFoundPage";
 function App({ currentUser }) {
   return (
     <BrowserRouter>
+      <SEO />
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <ParticlesBackground />

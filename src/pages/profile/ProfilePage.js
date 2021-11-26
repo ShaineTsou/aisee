@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
+import SEO from "../../components/seo/Seo";
 import PageContainer from "../../components/page-container/PageContainer";
 import PageTitle from "../../components/page-title/PageTitle";
 import Loader from "../../components/loader/Loader";
@@ -35,6 +36,7 @@ const ProfilePage = ({ currentUser }) => {
 
   return (
     <PageContainer>
+      <SEO title={displayName} />
       <Loader loaderHidden={loaderHidden} />
       <PageTitle>Hello, {displayName}</PageTitle>
       {userResults.length ? (
